@@ -1,0 +1,48 @@
+﻿body {
+}
+h1,h2{
+    text-align:center;
+    }
+span{
+    color:fuchsia;
+    font-size:50px;
+    font-style:italic;
+    font-weight:bold;
+}
+div{
+    border: 1px solid fuchsia;
+    padding:10px;
+    margin:5px;
+    border-radius: 25px;
+}
+.szoveg{
+    font-family:Arial;
+}
+.listak{
+    background-color:grey;
+}
+.nemsorrendi{
+    background-color:white;
+    border: 1px solid white;
+    border-radius:10px;
+}
+#sorrendi{
+    font-style:italic;
+    color:antiquewhite;
+}
+a{
+    color:black;
+    border: 1px solid blue;
+    background-color:blue;
+    padding:10px;
+    border-radius:25px;
+}
+a:hover{
+    color:yellow;
+}
+a:visited{
+    color:white;
+}
+.kep{
+    text-align:center;
+}
