@@ -1,0 +1,21 @@
+﻿#elsoD{
+    display:flex;
+}
+.elsofeladatsor {
+    display: flex;
+    flex-direction: row;
+    background-color:fuchsia;
+}
+#masodikD{
+    display:flex;
+    flex-direction:column;
+}
+.sor{
+    display:flex;
+    flex-direction:row;
+    text-align:justify;
+}
+.elem{
+    height:30px;
+    width:30px;
+}
