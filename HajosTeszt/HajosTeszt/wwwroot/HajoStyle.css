@@ -46,7 +46,13 @@ html, body {
     background-color: white;
 }
 
-    .kattinthato:hover {
+.kattinthato:hover {
         background-color: fuchsia;
         color: white;
     }
+.helyes{
+    background-color:lightgreen;
+}
+.helytelen {
+    background-color: coral;
+}
