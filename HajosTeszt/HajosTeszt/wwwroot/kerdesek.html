@@ -8,6 +8,11 @@
     <div id="eredmeny"></div>
 
     <script>
+        fetch('/questions/4')
+            .then(response => response.json())
+            .then(data => console.log(data)
+            );
+
         fetch('/questions/all')
             .then(response => response.json())
             .then(data => kiiratás(data)
@@ -22,6 +27,8 @@
                 document.getElementById("eredmeny").appendChild(újElem);
             }
         }
+
+        
     </script>
 </body>
 </html>
