@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form>
+        <div id="jokeList">
+            <div id="joketext">
+
+            </div>
+            <button id="elore" onclick="el()">elore</button>
+            <button id="hatra" onclick="hat()">hatra</button>
+        </div>
+        <div>
+            <input id="jokeText" type="text" placeholder="Csak PC vicc" />
+        </div>
+        <button id="addButton">Új vicc felvétele</button>
+    </form>
+    <script>
+        var viccekszama = 2;
+        var aktvicc = 1;
+        document.getElementById("addButton").addEventListener("click", () => {
+
+            //Ezt az objektumot fogjuk átküldeni
+            let data = {
+                text: document.getElementById("jokeText").value
+            }
+
+
+            fetch("api/jokes",
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            ).then(x => {
+                if (x.ok) {
+                    alert("Siker");
+
+                }
+                else {
+                    alert("Kudarc");
+                }
+            });
+
+        });
+        function viccbetöltés(jokenumber) {
+            fetch(`/api/jokes/${jokenumber}`)
+                .then(response => response.json())
+                .then(data => viccMegjelenítés(data)
+                );
+        }
+
+        function viccMegjelenítés(vicc) {
+            console.log(vicc);
+            document.getElementById("joketext").innerText = vicc.jokeText;
+        }
+
+        fetch('/api/jokes/count').then(result => result.text()).then(n => (viccekszama = parseInt(n)));
+        function el() {
+            aktvicc++;
+            if (aktvicc > viccekszama) {
+                aktvicc = 1;
+                viccbetöltés(aktvicc);
+            }
+            else {
+                viccbetöltés(aktvicc);
+            }
+            
+        }
+        function hat() {
+            aktvicc--;
+            if (aktvicc < 1) {
+                aktvicc = viccekszama;
+                viccbetöltés(aktvicc);
+            }
+            else {
+                viccbetöltés(aktvicc);
+            }
+
+        }
+        window.onload = viccbetöltés(aktvicc);
+    </script>
+</body>
+</html>
